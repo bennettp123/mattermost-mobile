@@ -4,6 +4,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {injectIntl, intlShape} from 'react-intl';
+import Orientation from 'react-native-orientation';
 import {
     Dimensions,
     NetInfo,
@@ -57,10 +58,17 @@ class Channel extends PureComponent {
         channelsRequestStatus: PropTypes.string
     };
 
+    constructor(props) {
+        super(props);
+
+        this.state = {headerWidth: Dimensions.get('window').width};
+    }
+
     componentWillMount() {
         EventEmitter.on('leave_team', this.handleLeaveTeam);
         NetInfo.isConnected.addEventListener('change', this.handleConnectionChange);
         NetInfo.isConnected.fetch().then(this.handleConnectionChange);
+        Orientation.addOrientationListener(this.orientationDidChange);
 
         if (this.props.currentTeam) {
             const teamId = this.props.currentTeam.id;
@@ -69,8 +77,8 @@ class Channel extends PureComponent {
     }
 
     componentDidMount() {
+        // Orientation.unlockAllOrientations();
         const {startPeriodicStatusUpdates} = this.props.actions;
-
         try {
             startPeriodicStatusUpdates();
         } catch (error) {
@@ -90,6 +98,7 @@ class Channel extends PureComponent {
 
         EventEmitter.off('leave_team', this.handleLeaveTeam);
         NetInfo.isConnected.removeEventListener('change', this.handleConnectionChange);
+        Orientation.removeOrientationListener(this.orientationDidChange);
 
         closeWebSocket();
         stopPeriodicStatusUpdates();
@@ -166,6 +175,12 @@ class Channel extends PureComponent {
         });
     };
 
+    orientationDidChange = () => {
+        setTimeout(() => {
+            this.setState({headerWidth: Dimensions.get('window').width});
+        }, 100);
+    };
+
     retryLoadChannels = () => {
         this.loadChannels(this.props.currentTeam.id);
     };
@@ -234,7 +249,7 @@ class Channel extends PureComponent {
                     />
                 </KeyboardLayout>
                 <View style={style.headerContainer}>
-                    <View style={style.header}>
+                    <View style={[style.header, {width: this.state.headerWidth}]}>
                         <ChannelDrawerButton/>
                         <ChannelTitle
                             onPress={() => preventDoubleTap(this.goToChannelInfo, this)}
@@ -258,7 +273,6 @@ const getStyleFromTheme = makeStyleSheetFromTheme((theme) => {
             backgroundColor: theme.sidebarHeaderBg,
             flexDirection: 'row',
             justifyContent: 'flex-start',
-            width: Dimensions.get('window').width,
             zIndex: 10,
             elevation: 2,
             ...Platform.select({

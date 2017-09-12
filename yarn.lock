@@ -4660,7 +4660,7 @@ react-native-notifications@enahum/react-native-notifications.git:
 
 react-native-orientation@enahum/react-native-orientation.git:
   version "1.17.0"
-  resolved "https://codeload.github.com/enahum/react-native-orientation/tar.gz/8b8495c91d8e63598874a141279cf5409e26ad3a"
+  resolved "https://codeload.github.com/enahum/react-native-orientation/tar.gz/992c81445d906f39909219d46e41b4921a0c0a7a"
 
 react-native-passcode-status@1.1.0:
   version "1.1.0"

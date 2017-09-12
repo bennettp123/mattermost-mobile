@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {injectIntl, intlShape} from 'react-intl';
 import {
     Animated,
-    Dimensions,
     Platform,
     StyleSheet,
     View
@@ -20,7 +19,6 @@ import PostList from 'app/components/post_list';
 import PostListRetry from 'app/components/post_list_retry';
 
 const {View: AnimatedView} = Animated;
-const {height: deviceHeight, width: deviceWidth} = Dimensions.get('window');
 
 class ChannelPostList extends PureComponent {
     static propTypes = {
@@ -233,8 +231,8 @@ class ChannelPostList extends PureComponent {
                     pointerEvents='none'
                     style={{
                         position: 'absolute',
-                        height: deviceHeight,
-                        width: deviceWidth,
+                        height: '100%',
+                        width: '100%',
                         top: 0,
                         left: 0,
                         opacity: loaderOpacity
@@ -262,7 +260,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 10,
         position: 'absolute',
         top: 0,
-        width: deviceWidth
+        width: '100%'
     }
 });
 

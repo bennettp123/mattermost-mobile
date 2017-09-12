@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
     ActivityIndicator,
     Animated,
-    Dimensions,
     Platform,
     StyleSheet,
     TouchableOpacity,
@@ -201,7 +200,7 @@ export default class OfflineIndicator extends PureComponent {
 const styles = StyleSheet.create({
     container: {
         height: HEIGHT,
-        width: Dimensions.get('window').width,
+        width: '100%',
         zIndex: 9,
         position: 'absolute'
     },
