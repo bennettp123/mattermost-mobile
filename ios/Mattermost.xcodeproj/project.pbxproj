@@ -832,6 +832,7 @@
 				00E356EF1AD99517003FC87E /* MattermostTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				0156F464626F49C2977D7982 /* Resources */,
+				9162EDA51F724DA800062BC6 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -844,6 +845,20 @@
 				00E356EE1AD99517003FC87E /* MattermostTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9162EDA51F724DA800062BC6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				EE671DF7637347CD8C069819 /* libRNDeviceInfo.a */,
+				ACC6B9FDC0AD45A6BFA4FBCD /* libBVLinearGradient.a */,
+				DFE628F5A526417D85AD635E /* libRNImagePicker.a */,
+				EE3EE4548D3F4A49B1274722 /* libRNLocalAuth.a */,
+				17A75F5A3D0D4A4A995DCD76 /* libRNPasscodeStatus.a */,
+				77810F0A063349439B0D8B6B /* libJailMonkey.a */,
+				0C0C75A424714EAC8E876A8F /* libFastImage.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
