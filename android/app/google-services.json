@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "134833443742",
-    "project_id": "tas-mm"
+    "firebase_url": "https://tas-mm.firebaseio.com",
+    "project_id": "tas-mm",
+    "storage_bucket": "tas-mm.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "134833443742-o6pgq4bs9hf84pp400hkoir2pf5rcgcb.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "134833443742-8d6sr2gmpv9madig2nej78fv9ba14dqf.apps.googleusercontent.com",
           "client_type": 3
@@ -31,7 +37,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
