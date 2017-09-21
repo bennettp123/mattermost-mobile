@@ -88,7 +88,7 @@ android {
     buildToolsVersion "25.0.1"
 
     defaultConfig {
-        applicationId "com.mattermost.rnbeta"
+        applicationId "rocks.tas2.rnbeta"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 49
